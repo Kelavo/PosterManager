@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class PosterRepository  {
+public class PosterRepository {
     private Movie[] items = new Movie[0];
 
     public void save(Movie item) {
@@ -20,15 +20,17 @@ public class PosterRepository  {
         items = tmp;
     }
 
-    public Movie[] findAll() {return items;}
+    public Movie[] findAll() {
+        return items;
+    }
 
-    public void removeById (int id) {
+    public void removeById(int id) {
         Movie[] tmp = new Movie[items.length - 1];
         int index = 0;
         for (Movie item : items) {
             if (item.getId() != id) {
                 tmp[index] = item;
-                index ++;
+                index++;
             }
         }
         items = tmp;
@@ -40,7 +42,7 @@ public class PosterRepository  {
         return tmp;
     }
 
-    public Movie findById (int id) {
+    public Movie findById(int id) {
         for (Movie item : items) {
             if (item.getId() == id) {
                 return item;

@@ -8,15 +8,41 @@ import ru.netology.domain.PosterRepository;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 
 public class PosterManager {
     private PosterRepository repository;
-    public PosterManager (PosterRepository repository) {this.repository = repository;}
 
-    public void add(Movie item) {repository.save(item);}
-    public void removeAll(){repository.removeAll();}
+    public PosterManager(PosterRepository repository) {
+        this.repository = repository;
+    }
+
+    public void add(Movie item) {
+        repository.save(item);
+    }
+
+    public void removeAll() {
+        repository.removeAll();
+    }
+
+    public void removeById() {
+        repository.removeById(2);
+    }
+
+    public void findById() {
+        repository.findById(1);
+    }
+
+    public Movie[] findAll() {
+        Movie[] tmp = repository.findAll();
+        return tmp;
+    }
+
+
 }
+
+
+
 
 
 
