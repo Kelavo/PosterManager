@@ -11,6 +11,7 @@ import ru.netology.domain.PosterRepository;
 //@AllArgsConstructor
 
 public class PosterManager {
+    private int limit = 10;
     private PosterRepository repository;
 
     public PosterManager(PosterRepository repository) {
@@ -38,6 +39,21 @@ public class PosterManager {
         return tmp;
     }
 
+    public Movie[] findLast() {
+        int length;
+        Movie[] items = repository.findAll();
+        if (limit <= items.length) {
+            length = limit;
+        } else {
+            length = items.length;
+        }
+        Movie[] tmp = new Movie[length];
+        for (int i = 0; i < length; i++) {
+            tmp[i] = items[items.length - i - 1];
+        }
+        Movie[] result = tmp;
+        return result;
+    }
 
 }
 

@@ -27,4 +27,13 @@ public class PosterManagerTestNonEmpty {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldLastPosters() {
+        Movie[] returned = {first, second, third};
+        doReturn(returned).when(repository).findAll();
+
+        Movie[] expected = {third, second, first};
+        Movie[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }
